@@ -1,0 +1,36 @@
+analysis >> Data analysis
+Climate forecasting functions
+ adaptive_regression
+ bluered
+ days_per_month
+ do_inversion_standard_aicc
+ ew_params
+ imagesc_withnan
+ linear_regularization_standardize
+ ma_params
+ p_zero
+ pcontinents
+ pcontinents2
+ regress_params
+ regress_params_pooled
+ regress_reg_gen_aicc_params
+ regrid
+ regrid_cartes_to_ea
+ regrid_ea_to_cartes
+ sefo_adj
+ sefo_cdf
+ sefo_example
+ sefo_fcst_assemble
+ sefo_fcst_read
+ sefo_normalization
+ sefo_obs_assemble
+ sefo_obs_read
+ sefo_predict
+ sefo_prediction
+ sefo_script_2016a
+ sefo_time_methods
+ sefo_verify
+ sefo_verification
+ t_crps
+ t_entropy
+ tpdf_log

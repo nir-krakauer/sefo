@@ -1,0 +1,11 @@
+Name: sefo
+Version: 0.0.6
+Date: 2016-11-16
+Author: Nir Krakauer <mail@nirkrakauer.net>
+Maintainer: Nir Krakauer <mail@nirkrakauer.net>
+Title: SeFo.
+Description: Seasonal forecasting functions.
+Depends: octave (>= 4.2), linear-algebra, nan, netcdf, splines
+Autoload: no
+License: GPLv3+
+Url: https://bitbucket.org/niryk/sefo

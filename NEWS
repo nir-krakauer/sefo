@@ -1,0 +1,11 @@
+Summary of important user-visible changes for sefo x.x.x:
+-------------------------------------------------------------------
+ ** New *_pooled and spline* prediction methods 
+
+
+Summary of important user-visible changes for sefo 0.0.3:
+-------------------------------------------------------------------
+
+ ** Predictions for multi-month means supported in sefo_predict.
+ ** New prediction methods rawmodel_globscaled, rawmodel_scaled, rawmultimodel_glob, rawmultimodel, rawmultimodel_glob_linear.
+ ** Fully-documented, general sefo_prediction and sefo_verification now called by sefo_predict and sefo_verify

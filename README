@@ -1,0 +1,62 @@
+
+The Octave package sefo (for Seasonal Forecasting) implements a number of methods for producing forecasts of monthly surface air temperature anomalies up to 9 months in advance using output from the North American Multi-Model Ensemble (NMME). The package is written as modules for downloading and reading past observations and ensemble output; producing forecast probability distributions; and verifying and calibrating a user-determined subset of methods using arbitrary past periods. By changing individual modules, the package could be extended to use other model ensembles, forecast other weather variables, or apply other forecast methods.
+
+___________________________
+REQUIREMENTS:
+
+1) A Unix-like system is likely required -- sefo has been tested with Debian Linux and Mac OS X.
+
+2) Octave (version 3.8 or later) (cf. https://www.gnu.org/software/octave/doc/interpreter/Installation.html)
+
+3) The Octave linear-algebra, nan, netcdf, splines packages.
+
+4) Internet connection (for downloading NMME data).
+
+5) Depending on how many forecast cases you run sefo for, typically 1-50 GB of space will be needed to hold downloaded observations, NMME forecasts, and intermediate and final output files.
+
+___________________________
+INSTALLATION AND QUICK START INSTRUCTIONS:
+
+1) Download the repository to somewhere on your computer, for example ~/my/sefo
+
+2) Create a directory for holding data and results, for example ~/my/sefo_data
+
+3) Launch Octave. Enter at the Octave command line:
+
+addpath ("~/my/sefo/inst")
+pkg load linear-algebra nan netcdf splines
+data_dir = "~/my/sefo_data/"; #the ending slash is needed
+sefo_example
+
+4) The sefo_example script will take a few minutes or more to run (depending on Internet connection and computer speeds), write about 1 GB to data_dir, and show a map of forecast temperature anomalies when it's finished.
+
+___________________________
+FIELDS OF THE OPTIONS INPUT STRUCTURE (OPTS) AND THEIR PERMISSIBLE TYPES/VALUES:
+
+data_dir (string): Directory where downloaded and output files are to be stored.
+re_download (logical): If set, download files even if they are already available locally.
+re_process (logical): If set, generate output files anew even if they are already saved locally.
+var_name (string): Variable to predict, currently must be 'tref' (surface air temperature).
+fcst_lons (float): Vector of longitudes in forecast system grid, currently should be (0:359)' for NMME.
+fcst_lats (float): Vector of longitudes in forecast system grid, currently should be (-90:90)'.
+fcst_start_year (integer): year from which to begin using ensemble forecasts, 1982 recommended for NMME.
+obs_dataset (string): Designation of observation data source, currently 'best' or 'bestland' or 'cams' or 'ncep'
+obs_start_year (integer): Year from which to begin using observations, 1957 recommended
+obs_end_year (integer): Year through which observations are available, most likely the previous year
+p_spline (float): Value of smoothing parameter (ranging between 0-1) used to estimate trends in time series, 1E-4 typical.
+dof_spline (float): Number of degrees of freedom to assume are used for smoothing spline fit in some of the prediction methods, 2.5 typical.
+lamda (float): Regularization parameter used in some of the prediction methods, 10 typical.
+predict_adj (logical): If set, call sefo_predict_adj to attempt to adjust the predictive distributions based on results for past years.
+predict_adj_years (integer): Years of past forecasts to use in sefo_predict_adj as the basis for adjustments, for example 1994:1998.
+predict_adj_months (integer): Calendar months of past forecasts to use in sefo_predict_adj as the basis for adjustments, for example 1:12.
+methods (cell array of strings): Forecast methods to employ when sefo_predict is invoked (see sefo_predict for the available methods).
+clim_years (integer): Range of years to use as the climatology period for computing anomalies, for example 1981:2010.   
+gcms (cell array of strings): Climate models whose forecasts should be downloaded and used to make predictions, for example {{'CMC1-CanCM3', 'CMC2-CanCM4', 'GFDL-CM2p1-aer04', 'COLA-RSMAS-CCSM3', 'NASA-GMAO-062012'}}.
+subset_verify (string): 'land' or 'ocean' means that verification is averaged only for the land or ocean fractions, respectively (currently only implemented for obs_dataset='best')
+
+___________________________
+CITATION:
+Krakauer, N.Y., (2016). SeFo: A Package for Generating Probabilistic Forecasts from NMME Predictive Ensembles. Journal of Open Research Software. 4(1), p.e19. DOI: http://doi.org/10.5334/jors.112
+
+
+

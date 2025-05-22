@@ -1,0 +1,19 @@
+@software{sefo,
+   author = {Krakauer, Nir Y.},
+   title = {SeFo (Seasonal Forecasting) Package for GNU Octave},
+   url = {https://bitbucket.org/niryk/sefo},
+   version = {0.0.3},
+   date = {2016-05-05},
+ }
+
+ @article{krakauer16,
+  author = {Nir Y Krakauer},
+  title = {SeFo: a package for generating probabilistic forecasts from NMME predictive ensembles},
+  journal = {Journal of Open Research Software},
+  year = {2016},
+  volume = {4},
+  number = {1},
+  pages = {e19},
+  doi = {10.5334/jors.112}
+}
+
